@@ -1,7 +1,7 @@
 ﻿/*
  * Author : Tamara-Karebi Wodu
  * Date :  May 30 2021
- * Comments: Thsi is my assignment 1 for ISM6225 
+ * Comments: This is my assignment 1 for ISM6225 
  */
 
 
@@ -103,9 +103,17 @@ namespace SummerAssignment_1_TKW
 
             try
             {
+                /* The variables will be used to claculate the two integers input
+                 * of the robot*/
+                 
                 var currentX = 0;
                 var currentY = 0;
 
+                /* Iterate through the variables using a For Loop
+                 * For loop for the 4 moves, if the robot returns to the origin after it finishes 
+                 * all of it's moves , retun ture if not false. */
+
+                
                 for (int i = 0; i < moves.Length; i++)
                 {
                     var currentLetter = moves[i];
@@ -160,6 +168,9 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
         {
             try
             {
+                /*Change the string to lower case alphabets 
+                 * Created an array the size of the alphabets */
+
                 s = s.ToLower();
                 var allLetters = new bool[26];
                 for (int i = 0; i < s.Length; i++)
@@ -167,6 +178,7 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
                     allLetters[s[i] - 'a'] = true;
                 }
 
+                // Iterate through the variables with a Foreach Loop
                 foreach (bool let in allLetters)
                 {
                     if (!let)
@@ -174,7 +186,7 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
                         return false;
                     }
                 }
-                // write your code here.
+                
                 return true;
             }
             catch (Exception)
@@ -206,7 +218,9 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
             try
             {
                 var correctPairCount = 0;
-                // write your code here
+                /* Loop through the array twice trying to find good pairs,
+                 * if one is found, increment the output int and return it */
+                 
                 for (int i = 0; i < nums.Length; i++)
                 {
                     for (int j = i+1; j < nums.Length; j++)
@@ -235,8 +249,11 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
         /*
 
           <summary>
-   Given an array of integers nums, calculate the pivot index of this array.The pivot index is the index where the sum of all the numbers strictly to the left of  the index is equal to the sum of all the numbers strictly to the index's right.
-  If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+   Given an array of integers nums, calculate the pivot index of this array.
+   The pivot index is the index where the sum of all the numbers strictly to
+  the left of  the index is equal to the sum of all the numbers strictly to the index's right.
+  If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left.
+  This also applies to the right edge of the array.
   Return the leftmost pivot index. If no such index exists, return -1.
   Example 1:
   Input: nums = [1,7,3,6,5,6]
@@ -261,7 +278,10 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
                 {
                     rightSide += nums[i];
                 }
-                // write your code here.
+
+                /* loop through an array while using a pionter to dictate the left and right sides.
+                 * keep a sum of both and if they are ever equal then retun the pivot pionter*/
+
                 for (int i = 0; i < nums.Length; i++)
                 {
                     rightSide -= nums[i];
@@ -307,7 +327,11 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
         {
             try
             {
-                // write your code here.
+
+                /*merge one letter from each string at a time. if either string ends early then i make
+                 * sure to merge the rest into the final merged substring*/
+
+
                 var merged = "";
                 int i = 0;
                 for (; i < word1.Length; i++)
@@ -355,7 +379,9 @@ Note: Use of String function (Contains) and hasmap is not allowed, think of othe
         {
             try
             {
-                // write your code here
+                /* Hashset allows me to quickly see if the the letter im currently
+                 * viweing is a vowel. using the contains function backed by a hashing algorithm*/
+
                 HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
                 var words = sentence.Split(' ');
                 for (int i = 0; i < words.Length; i++)
